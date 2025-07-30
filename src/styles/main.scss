@@ -1,0 +1,372 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap");
+
+$bg-white: rgb(255, 255, 255);
+$bg-gray-light: rgb(240, 240, 240);
+
+$green-accent: rgb(40, 217, 121);
+
+$text-black-primary: rgb(0, 0, 0);
+$text-gray-secondary: rgb(63, 61, 61);
+$text-white-on-dark: rgb(255, 255, 255);
+$text-gray-contact: rgb(208, 208, 208);
+$text-white-secondary: rgb(235, 249, 242);
+$text-tags: rgb(20, 144, 99);
+
+$text-green-light-accent: rgb(221, 241, 99);
+$bg-green-dark-spot: rgb(74, 176, 80);
+$icon-yellow-heart: rgb(246, 237, 30);
+
+// Брейкпоинты
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+
+body {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
+  gap: 20px;
+  padding: 0;
+  max-width: calc(100% - 40px);
+}
+%partial {
+  display: grid;
+  gap: 20px;
+}
+.upper-partial {
+  @extend %partial;
+  height: 124px;
+  grid-template-columns: 124px 124px 267px;
+}
+%card {
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-gray-light;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  .card-title {
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+.profile-img {
+  width: auto;
+  border-radius: 12px;
+}
+.hello-card {
+  @extend %card;
+
+  justify-content: space-between;
+
+  .hello {
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .name {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .role {
+    font-size: 12px;
+    font-weight: 500;
+    color: $text-gray-secondary;
+  }
+}
+
+.languages-card {
+  @extend %card;
+
+  justify-content: space-between;
+
+  padding-bottom: 22px;
+
+  .l1 {
+    @extend .card-title;
+  }
+  .l2 {
+    @extend .l1;
+    font-size: 10px;
+    line-height: 1;
+  }
+  .languages-list {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .languages-down-part {
+    display: flex;
+    gap: 17px;
+    height: 53px;
+  }
+  .languages-level-marks {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+  .language-level-mark {
+    background-color: $green-accent;
+    height: 11px;
+    width: 168px;
+
+    border-radius: 3px;
+  }
+  .short-language-level-mark {
+    @extend .language-level-mark;
+    width: 129px;
+  }
+}
+.middle-partial {
+  @extend %partial;
+  height: 359px;
+  grid-template-columns: 411px 124px;
+}
+.experience-card {
+  @extend %card;
+  gap: 15px;
+  padding-bottom: 10px;
+  .card-content {
+    display: inherit;
+    flex-direction: inherit;
+    gap: 10px;
+    %mini-card {
+      display: inherit;
+      flex-direction: inherit;
+      padding: 8px;
+      gap: 8px;
+      border-radius: 10px;
+
+      background-color: white;
+
+      .mini-card-header {
+        display: flex;
+        align-items: center;
+
+        font-weight: 500;
+        font-size: 8px;
+        justify-content: space-between;
+      }
+      .most-recent {
+        height: 16px;
+        width: 61px;
+
+        display: flex;
+        align-items: center; /* Centers vertically */
+        justify-content: center;
+
+        background-color: $bg-green-dark-spot;
+        border-radius: 59px;
+        color: $text-green-light-accent;
+      }
+      .mini-card-main {
+        display: flex;
+        justify-content: space-between;
+
+        .role {
+          display: flex;
+          flex-direction: column;
+
+          .role-name {
+            font-size: 10px;
+            font-weight: 500;
+          }
+          .role-detatils {
+            font-size: 8px;
+            font-weight: 400;
+          }
+        }
+
+        .responsibilities {
+          ul {
+            list-style-type: disc;
+            padding-inline-start: 0; /* Добавляет стандартные маркеры • */
+            /* Создает отступ для маркеров */
+            margin: 0;
+            width: 227px;
+          }
+          li {
+            margin-bottom: 0px; /* Отступ между пунктами */
+            font-size: 8px;
+          }
+        }
+      }
+    }
+    .most-recent-mini-card {
+      @extend %mini-card;
+      background-color: $green-accent;
+      color: white;
+      .mini-card-header {
+        justify-content: space-between;
+      }
+      .role-detatils {
+        color: $text-white-secondary;
+      }
+    }
+    .standart-mini-card {
+      @extend %mini-card;
+    }
+  }
+}
+.tools-card {
+  @extend %card;
+  gap: 12.5px;
+  max-height: 359px;
+  box-sizing: border-box;
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+
+    .tools-group-container {
+      position: relative;
+      width: 76px;
+      margin: 0 auto;
+
+      .group-name {
+        position: absolute;
+        top: -5.5px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: auto;
+        padding: 2px 6px;
+        border-radius: 59px;
+        font-size: 5px;
+        background-color: black;
+        color: white;
+        white-space: nowrap;
+      }
+      .group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 6px;
+        background-color: white;
+        padding: 16px 12px;
+        justify-items: center;
+        gap: 16px;
+
+        .icon {
+          height: 17px;
+          width: 17px;
+        }
+      }
+    }
+  }
+}
+.lower-partial {
+  @extend %partial;
+  height: 289px;
+  grid-template-columns: 268px 267px;
+}
+//
+.education-card {
+  @extend %card;
+  gap: 16px;
+  .header {
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    %mini-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      padding: 8px;
+      border-radius: 10px;
+
+      background-color: white;
+      .main {
+        display: flex;
+        flex-direction: column;
+      }
+      .name {
+        font-size: 10px;
+        font-weight: 500;
+      }
+      .tags {
+        font-size: 8px;
+        font-weight: 400;
+        color: $text-tags;
+      }
+      .footer {
+        font-size: 8px;
+        font-weight: 400;
+      }
+    }
+    .liked-mini-card {
+      @extend %mini-card;
+      color: white;
+      background-color: $green-accent;
+      .tags {
+        color: $text-white-secondary;
+      }
+    }
+    .standart-mini-card {
+      @extend %mini-card;
+    }
+    .flex-contaier-container {
+      display: flex;
+      gap: 16px;
+      .flex-contaier {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        flex: 1;
+      }
+    }
+  }
+}
+.right-down-block {
+  display: grid;
+  gap: 20px;
+}
+.interests-card {
+  @extend %card;
+  height: 177px;
+  /* gap: 16px; */
+  justify-content: space-between;
+  box-sizing: border-box;
+  .card-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .interest {
+      font-size: 10px;
+      background-color: white;
+
+      border-radius: 40px;
+      padding: 4px 10px;
+    }
+  }
+}
+.letschat-card {
+  @extend %card;
+  height: 68px;
+
+  align-content: space-between;
+  color: white;
+  flex-wrap: wrap;
+  background-color: black;
+  justify-content: space-between;
+  .contact {
+    font-weight: 300;
+    font-size: 10px;
+    color: $text-gray-contact;
+  }
+}
