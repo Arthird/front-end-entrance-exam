@@ -1,0 +1,387 @@
+@use "variables" as *;
+// === Базовые стили ===
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: $bg-white;
+  color: $text-black-primary;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px; // Отступы по бокам — ключевое исправление
+  margin: 20px auto;
+}
+
+// === Примеси (полностью из десктопа) ===
+%partial {
+  display: flex;
+  gap: 20px;
+}
+
+%card {
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-gray-light;
+  padding: 12px;
+  border-radius: 12px;
+  height: -webkit-fill-available;
+
+  .card-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: $text-black-primary;
+  }
+}
+
+// === Верхняя часть: фото, приветствие, языки ===
+.upper-partial {
+  @extend %partial;
+  align-items: start;
+  gap: 16px;
+
+  .profile-img {
+    width: auto;
+    border-radius: 12px;
+  }
+  .hello-card {
+    @extend %card;
+    min-width: 124px;
+    justify-content: space-between;
+
+    .person-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .hello {
+      font-size: 10px;
+      font-weight: 500;
+    }
+    .name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .role {
+      font-size: 12px;
+      font-weight: 500;
+      color: $text-gray-secondary;
+    }
+  }
+
+  .languages-card {
+    @extend %card;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+    gap: 16px;
+
+    .l1 {
+      @extend .card-title;
+    }
+
+    .languages-down-part {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      height: -webkit-fill-available;
+      justify-content: space-between;
+    }
+
+    .languages-list {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      height: -webkit-fill-available;
+      justify-content: space-between;
+
+      .l2 {
+        line-height: 1;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
+    .languages-level-marks {
+      align-items: baseline;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: -webkit-fill-available;
+      height: -webkit-fill-available;
+
+      .language-level-mark,
+      .short-language-level-mark {
+        height: 11px;
+        border-radius: 3px;
+        background-color: $green-accent;
+      }
+
+      .language-level-mark {
+        width: 100%;
+      }
+
+      .short-language-level-mark {
+        width: 70%;
+      }
+    }
+  }
+}
+
+// === Средняя часть: опыт и инструменты ===
+.middle-partial {
+  @extend %partial;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+
+  .experience-card {
+    @extend %card;
+    gap: 16px;
+    width: -webkit-fill-available; // padding-bottom: 10px;
+    .card-content {
+      display: inherit;
+      flex-direction: inherit;
+      gap: 10px;
+      %mini-card {
+        display: inherit;
+        flex-direction: inherit;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 10px;
+
+        background-color: white;
+
+        .mini-card-header {
+          display: flex;
+          align-items: center;
+
+          font-weight: 500;
+          font-size: 8px;
+          justify-content: space-between;
+        }
+        .most-recent {
+          height: 16px;
+          width: 61px;
+
+          display: flex;
+          align-items: center; /* Centers vertically */
+          justify-content: center;
+
+          background-color: $bg-green-dark-spot;
+          border-radius: 59px;
+          color: $text-green-light-accent;
+        }
+        .mini-card-main {
+          display: flex;
+          gap: 20px; // justify-content: space-between;
+          .role {
+            display: flex;
+            flex-direction: column;
+
+            min-width: 150px;
+
+            .role-name {
+              font-size: 10px;
+              font-weight: 500;
+            }
+            .role-details {
+              font-size: 8px;
+              font-weight: 400;
+            }
+          }
+
+          .responsibilities {
+            ul {
+              list-style-type: disc;
+              padding-inline-start: 0; /* Добавляет стандартные маркеры • */
+              /* Создает отступ для маркеров */
+              margin: 0;
+            }
+            li {
+              margin-bottom: 0px; /* Отступ между пунктами */
+              font-size: 8px;
+            }
+          }
+        }
+      }
+      .most-recent-mini-card {
+        @extend %mini-card;
+        background-color: $green-accent;
+        color: white;
+
+        .mini-card-header {
+          justify-content: space-between;
+        }
+      }
+      .standart-mini-card {
+        @extend %mini-card;
+        .role-details {
+          color: $text-gray-secondary;
+        }
+      }
+    }
+  }
+
+  .tools-card {
+    @extend %card;
+    gap: 16px;
+
+    .card-content {
+      display: flex;
+      // flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+
+      .tools-group-container {
+        position: relative;
+        width: 76px;
+        margin: 0 auto;
+
+        .group-name {
+          position: absolute;
+          top: -5.5px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 5px;
+          background-color: black;
+          color: white;
+          padding: 2px 6px;
+          border-radius: 59px;
+          white-space: nowrap;
+          z-index: 1;
+        }
+
+        .group {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          background-color: white;
+          padding: 16px 12px;
+          border-radius: 6px;
+          justify-items: center;
+
+          .icon {
+            width: 17px;
+            height: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// === Нижняя часть: образование, интересы, контакт ===
+.lower-partial {
+  @extend %partial;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+
+  .education-card {
+    @extend %card;
+    gap: 16px;
+    .header {
+      font-size: 10px;
+      font-weight: 500;
+    }
+    .card-content {
+      display: flex;
+      gap: 12px;
+
+      %mini-card {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        padding: 8px;
+        border-radius: 10px;
+
+        background-color: white;
+        .main {
+          display: flex;
+          flex-direction: column;
+        }
+        .name {
+          font-size: 10px;
+          font-weight: 500;
+        }
+        .tags {
+          font-size: 8px;
+          font-weight: 400;
+          color: $text-tags;
+        }
+        .footer {
+          font-size: 8px;
+          font-weight: 400;
+        }
+      }
+      .liked-mini-card {
+        @extend %mini-card;
+        color: white;
+        background-color: $green-accent;
+        .tags {
+          color: $text-white-secondary;
+        }
+      }
+      .standart-mini-card {
+        @extend %mini-card;
+      }
+
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        flex: 1;
+      }
+    }
+  }
+
+  .right-down-block {
+    display: grid;
+    gap: 20px;
+
+    .interests-card {
+      @extend %card;
+      gap: 16px;
+      // justify-content: space-between;
+
+      .card-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .interest {
+          font-size: 10px;
+          background-color: white;
+          color: $text-black-primary;
+          padding: 4px 10px;
+          border-radius: 40px;
+        }
+      }
+    }
+
+    .letschat-card {
+      @extend %card;
+      height: -webkit-fill-avaible;
+
+      align-content: space-between;
+
+      flex-wrap: wrap;
+      background-color: black;
+      justify-content: space-between;
+      .card-title {
+        color: white;
+      }
+      .contact {
+        font-weight: 300;
+        font-size: 10px;
+        color: $text-gray-contact;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+$bg-white: rgb(255, 255, 255);
+$bg-gray-light: rgb(240, 240, 240);
+
+$green-accent: rgb(40, 217, 121);
+
+$text-black-primary: rgb(0, 0, 0);
+$text-gray-secondary: rgb(63, 61, 61);
+$text-white-on-dark: rgb(255, 255, 255);
+$text-gray-contact: rgb(208, 208, 208);
+$text-white-secondary: rgb(235, 249, 242);
+$text-tags: rgb(20, 144, 99);
+
+$text-green-light-accent: rgb(221, 241, 99);
+$bg-green-dark-spot: rgb(74, 176, 80);
+$icon-yellow-heart: rgb(246, 237, 30);
+
+.pdf-btn {
+  color: $text-white-on-dark;
+  background-color: $green-accent;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-radius: 59px;
+}
+.liked-mini-card {
+  .header {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.like {
+  height: inherit;
+}
+%card:hover {
+  transform: scale(1.025); /* увеличение при наведении */
+}
+.profile-img:hover {
+  transform: scale(1.025); /* увеличение при наведении */
+}
+%card,
+.profile-img {
+  transition: transform 0.3s ease;
+}
