@@ -34,10 +34,10 @@ $icon-yellow-heart: rgb(246, 237, 30);
   height: inherit;
 }
 %card:hover {
-  transform: scale(1.025); /* увеличение при наведении */
+  transform: scale(1.025);
 }
 .profile-img:hover {
-  transform: scale(1.025); /* увеличение при наведении */
+  transform: scale(1.025);
 }
 %card,
 .profile-img {

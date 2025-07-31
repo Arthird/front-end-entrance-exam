@@ -1,5 +1,5 @@
 import { StyleChanger } from "./scripts/StyleChanger";
-import { PdfExporter } from "./scripts/PdfExporter"; // Импорт нового класса
+import { PdfExporter } from "./scripts/PdfExporter";
 
 StyleChanger.updateView();
 
@@ -11,7 +11,6 @@ window.addEventListener("resize", () => {
   }, 80);
 });
 
-// Инициализируем PdfExporter после загрузки DOM
 document.addEventListener("DOMContentLoaded", () => {
   PdfExporter.init();
 });

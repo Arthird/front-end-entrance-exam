@@ -21,7 +21,6 @@ export class PdfExporter {
       return;
     }
 
-    // Добавляем временный класс
     document.body.classList.add("pdf-export");
 
     const options = {
@@ -53,7 +52,7 @@ export class PdfExporter {
       .from(element)
       .save()
       .then(() => {
-        document.body.classList.remove("pdf-export"); // Удаляем класс
+        document.body.classList.remove("pdf-export");
         if (button) {
           button.disabled = false;
           button.textContent = originalText;
